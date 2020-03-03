@@ -1,7 +1,8 @@
 FROM python:3.7-alpine
-ADD . /code
+ADD requirements.txt /code/
 WORKDIR /code
+RUN pip install -r requirements.txt
+ADD . /code
 RUN chmod 644 /code/app.py
-RUN pip install flask
 CMD ["python", "app.py"]
 EXPOSE 5000
